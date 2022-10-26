@@ -34,20 +34,25 @@ a {
   grid-template-rows: 80px auto;
   grid-template-areas:
     "head nav nav nav nav nav nav nav nav nav nav"
-    "head sec sec sec sec sec sec sec sec sec sec"
     "head sec sec sec sec sec sec sec sec sec sec";
 }
 /* Start Header */
 header {
   grid-area: head;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-direction: column;
   align-items: center;
   width: 70px;
   border-right: 1px solid #f6f5f6;
+  gap: 30px;
 }
-
+/* @media (max-width: 767px) {
+  header {
+    display: flex;
+    justify-content: unset;
+  }
+} */
 @media (min-width: 991px) {
   header:hover {
     width: 180px;
@@ -281,6 +286,42 @@ nav .icons .search input::placeholder {
     "projects projects projects";
   gap: 15px;
 }
+@media (max-width: 1199px) {
+  .dashboard {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-areas:
+      "welcome draft target"
+      "ticket news task"
+      "search upload prog"
+      " remind post social"
+      "projects projects projects";
+    gap: 15px;
+  }
+}
+@media (max-width: 991px) {
+  .dashboard {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-areas:
+      "welcome draft " "target ticket"
+      " news task"
+      "search upload" "prog remind"
+      " post social"
+      "projects  projects";
+    gap: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .dashboard {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-areas:
+      "welcome " "draft " "target" " ticket"
+      " news " "task"
+      "search" " upload" "prog " "remind"
+      " post " "social"
+      "projects";
+    gap: 15px;
+  }
+}
 .dashboard .welcome {
   grid-area: welcome;
   background-color: white;
@@ -417,6 +458,7 @@ nav .icons .search input::placeholder {
 .dashboard .yearly-target .target .info {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 .dashboard .yearly-target .target .info span {
   display: block;
@@ -432,7 +474,7 @@ nav .icons .search input::placeholder {
   position: relative;
 }
 .dashboard .yearly-target .target .info div {
-  width: 300px;
+  width: 100%;
   height: 4px;
   position: relative;
 }

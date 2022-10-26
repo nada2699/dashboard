@@ -1,0 +1,34 @@
+.card-radious {
+  border-radius: 12px;
+}
+.img-radiuos {
+  border-radius: 50%;
+  width: 60px;
+}
+.btn {
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: white;
+  color: #01887b;
+  border: 2px solid var(--main-color);
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+.heading-design {
+  font-size: 25px;
+  margin: 0;
+}
+.heading-span {
+  display: block;
+  color: #777;
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 5px;
+}

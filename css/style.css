@@ -8,7 +8,7 @@
   --section-background: #ececec;
   --secondary-color: #ececec3d;
   --main-transition: 0.3s;
-  --section-padding: 30px;
+  --section-padding: 20px;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -276,8 +276,8 @@ nav .icons .search input::placeholder {
   background-color: aliceblue;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-template-rows: repeat(auto-fill, 350px);
+  /* grid-template-columns: repeat(auto-fill, minmax(350px, auto)); */
+  /* grid-template-rows: repeat(auto-fill, 350px); */
   grid-template-areas:
     "welcome draft target"
     "ticket news task"
@@ -288,7 +288,7 @@ nav .icons .search input::placeholder {
 }
 @media (max-width: 1199px) {
   .dashboard {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
     grid-template-areas:
       "welcome draft target"
       "ticket news task"
@@ -331,7 +331,7 @@ nav .icons .search input::placeholder {
   border-bottom: 1px solid #f6f5f6;
   display: flex;
   justify-content: space-around;
-  padding: 10px 20px;
+  padding: 10px var(--section-padding);
   align-items: center;
 }
 .dashboard .welcome .head {
@@ -345,7 +345,7 @@ nav .icons .search input::placeholder {
   width: 150px;
 }
 .dashboard .welcome .image {
-  padding: 20px;
+  padding: var(--section-padding);
   position: relative;
 }
 .dashboard .welcome .image img {
@@ -374,7 +374,7 @@ nav .icons .search input::placeholder {
   margin: 0;
   padding: 0;
   max-width: 100px;
-  font-size: 20px;
+  font-size: var(--section-padding);
   font-weight: 600;
   /* color: var(--main-color); */
 }
@@ -390,8 +390,8 @@ nav .icons .search input::placeholder {
   background-color: white;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+  gap: var(--section-padding);
+  padding: var(--section-padding);
 }
 
 .dashboard .draft input[type="text"],
@@ -419,13 +419,13 @@ nav .icons .search input::placeholder {
 .dashboard .yearly-target {
   grid-area: target;
   background-color: white;
-  padding: 20px;
+  padding: var(--section-padding);
 }
 .dashboard .yearly-target .target {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-top: 20px;
+  margin-top: var(--section-padding);
 }
 .dashboard .yearly-target .target .image {
   width: 60px;
@@ -558,26 +558,197 @@ nav .icons .search input::placeholder {
 .dashboard .tickets-stat {
   grid-area: ticket;
   background-color: white;
+  padding: var(--section-padding);
 }
+.dashboard .tickets-stat .content {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  row-gap: var(--section-padding);
+  column-gap: 5px;
+}
+.dashboard .tickets-stat .content .details {
+  flex-basis: 45%;
+  border: 2px solid #777;
+  padding: 15px;
+  text-align: center;
+}
+.dashboard .tickets-stat .content .details i {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+.dashboard .tickets-stat .content .details:first-of-type i {
+  color: var(--main-color);
+}
+.dashboard .tickets-stat .content .details:nth-of-type(2) i {
+  color: #708fff;
+}
+.dashboard .tickets-stat .content .details:nth-of-type(3) i {
+  color: #f59e0b;
+}
+.dashboard .tickets-stat .content .details:last-of-type i {
+  color: #22c56f;
+}
+
 .dashboard .last-news {
   grid-area: news;
   background-color: white;
+  padding: var(--section-padding);
+}
+
+.dashboard .last-news .new-section {
+  border-bottom: 1px solid #f6f5f6;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.dashboard .last-news .new-section::before {
+  content: "3 days Ago";
+  position: absolute;
+  background-color: #ececec;
+  font-size: 10px;
+  padding: 7px;
+  right: 0;
+  top: 10%;
+  border-radius: 10px;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .dashboard .last-news .new-section::before {
+    top: -20%;
+  }
+}
+.dashboard .last-news .new-section:nth-of-type(2):before {
+  content: "5 days Ago";
+}
+.dashboard .last-news .new-section:nth-of-type(3)::before {
+  content: "7 days Ago";
+}
+.dashboard .last-news .new-section:last-of-type:before {
+  content: "9 days Ago";
+}
+.dashboard .last-news .new-section img {
+  max-width: 80px;
 }
 .dashboard .last-tasks {
   grid-area: task;
   background-color: white;
+  padding: var(--section-padding);
 }
+.dashboard .last-tasks .txt {
+  padding: 10px 0;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f6f5f6;
+}
+.dashboard .last-tasks .txt i:hover {
+  color: #777;
+  cursor: pointer;
+}
+.dashboard .last-tasks .txt:nth-of-type(3) {
+  color: #777;
+}
+.dashboard .last-tasks .txt:nth-of-type(3) h3 {
+  text-decoration: line-through;
+}
+
 .dashboard .Top-search {
   grid-area: search;
   background-color: white;
+  padding: var(--section-padding);
+}
+
+.dashboard .Top-search .txt {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--section-padding) 0;
+}
+
+.dashboard .Top-search .txt:first-of-type {
+  color: #777;
+}
+.dashboard .Top-search .txt span {
+  display: block;
+  font-size: 18px;
 }
 .dashboard .last-uploads {
   grid-area: upload;
   background-color: white;
+  padding: var(--section-padding);
+}
+.dashboard .last-uploads .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f6f5f6;
+  padding: 10px 0;
+}
+.dashboard .last-uploads .content .file {
+  display: flex;
+  align-items: center;
+}
+.dashboard .last-uploads .content .file img {
+  max-width: 60px;
+}
+.dashboard .last-uploads .content .file p {
+  font-size: 18px;
+}
+.dashboard .last-uploads .content .file p span {
+  display: block;
+  color: #777;
+  margin-top: 5px;
 }
 .dashboard .last-project-prog {
   grid-area: prog;
   background-color: white;
+  padding: var(--section-padding);
+  padding-right: 0;
+}
+.dashboard .last-project-prog .content {
+  display: flex;
+  flex-direction: column;
+}
+.dashboard .last-project-prog .image {
+  align-self: flex-end;
+}
+.dashboard .last-project-prog .image img {
+  max-width: 200px;
+}
+.dashboard .last-project-prog .step {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.dashboard .last-project-prog .step p {
+  font-size: 18px;
+}
+.dashboard .last-project-prog .step .first {
+  position: relative;
+}
+.dashboard .last-project-prog .step:not(:nth-of-type(8)) .first::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 23px;
+  top: 100%;
+  left: 45%;
+  background-color: var(--main-color);
+}
+.dashboard .last-project-prog .step .second {
+  width: 15px;
+  height: 15px;
+  background-color: var(--main-color);
+}
+.dashboard .last-project-prog .step:nth-of-type(6) .second {
+  background-color: #03b9a7fd;
+  border-color: #03b9a7fd;
 }
 .dashboard .reminder {
   grid-area: remind;

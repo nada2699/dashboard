@@ -1,9 +1,21 @@
+:root {
+  --main-color: #01887b;
+}
 .card-radious {
   border-radius: 12px;
 }
 .img-radiuos {
   border-radius: 50%;
   width: 60px;
+}
+.circle {
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
 }
 .btn {
   border: none;
@@ -24,11 +36,25 @@
 .heading-design {
   font-size: 25px;
   margin: 0;
+  margin-bottom: 20px;
 }
-.heading-span {
+.heading-in {
+  font-size: 17px;
+}
+
+.heading-span,
+.heading-span-2 {
   display: block;
   color: #777;
   font-size: 20px;
   font-weight: normal;
   margin-top: 5px;
+}
+.heading-span-2 {
+  font-size: 15px;
+}
+.span-back {
+  background-color: #ececec;
+  padding: 5px;
+  border-radius: 10px;
 }
